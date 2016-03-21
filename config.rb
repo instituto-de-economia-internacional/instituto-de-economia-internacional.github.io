@@ -13,11 +13,6 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.build_before = true
-  deploy.branch = 'master'
-end
 configure :development do
   activate :livereload
 end
@@ -27,6 +22,8 @@ configure :build do
 end
 
 activate :deploy do |deploy|
-  deploy.build_before = true
   deploy.deploy_method = :git
+  deploy.build_before = true
+  deploy.build_before = true
+  deploy.branch = 'master'
 end
