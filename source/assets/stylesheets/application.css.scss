@@ -1,11 +1,14 @@
 @import "vendor/normalize";
 
+
 @import "bourbon";
 @import "base/base";
 @import "neat";
 
+@import "global";
+
 @import "refills/navigation";
 @import "refills/footer";
 @import "refills/cards";
+@import "refills/side-image";
 
-@import "global";
