@@ -5,8 +5,8 @@
   $base-font-color: $dark-gray !default;
   $centered-navigation-padding: 1em;
   $centered-navigation-logo-height: 2em;
-  $centered-navigation-background: #E7F1EC;
-  $centered-navigation-color: transparentize($base-font-color, 0.3);
+  $centered-navigation-background: desaturate(lighten(#8D2232, 5%), 20%);
+  $centered-navigation-color: white;
   $centered-navigation-color-hover: $base-font-color;
   $centered-navigation-height: 60px;
   $centered-navigation-item-padding: 1em;
