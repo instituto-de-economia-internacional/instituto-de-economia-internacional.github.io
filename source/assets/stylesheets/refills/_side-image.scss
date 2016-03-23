@@ -1,6 +1,4 @@
 .side-image {  
-  margin-bottom: 60px;
-  @include outer-container;
   $base-line-height: 1.5em !default;
   $action-color: #477DCA !default;
   $dark-gray: #333 !default;
@@ -10,7 +8,8 @@
   $side-image-background-bottom: #5DAC5D;
   $side-image-content-background: #F9F9F9;
   $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
-
+  
+  margin: 0 1;
   background: $side-image-content-background;
 
   @include media($large-screen) {

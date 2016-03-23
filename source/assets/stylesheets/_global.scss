@@ -15,8 +15,33 @@ $verde-claro: #98B448;
 $verde-color: #728E23;
 $verde-oscuro: #4E6608;
 $verde-muy-oscuro: #304000;
+$refills-max-width: 800px;
+$refills-color: lighten(desaturate(teal, 60%), 40%);
 
+.refills {
+  margin: 60px 0;
+  @include outer-container;
+}
 
+.refills-wrapper {
+  @include outer-container($refills-max-width);
+  padding: 1em;
+
+  h1.main-header {
+    background-color: $refills-color;
+    display: inline-block;
+    padding: 0.5em;
+  }
+  text-align: center;
+
+  & > * {
+    display: inline-block;
+
+    & > * {
+      text-align: left;
+    }
+  }
+}
 
 
 

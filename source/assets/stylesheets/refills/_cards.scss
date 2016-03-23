@@ -1,6 +1,4 @@
 .cards {
-  margin: 60px 0;
-  @include outer-container;
   @include display(flex);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
