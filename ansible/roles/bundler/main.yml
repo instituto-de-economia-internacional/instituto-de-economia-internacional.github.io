@@ -1,0 +1,3 @@
+---
+- name: Instalar Gemfile
+  bundler: state=present
