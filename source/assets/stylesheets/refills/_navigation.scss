@@ -5,9 +5,11 @@
   $base-font-color: $dark-gray !default;
   $centered-navigation-padding: 1em;
   $centered-navigation-logo-height: 2em;
-  $centered-navigation-background: desaturate(lighten(#8D2232, 5%), 20%);
+  //$centered-navigation-background: $dark-gray;
+  $centered-navigation-background: desaturate(darken($rojo-oscuro,0%), 10%);
   $centered-navigation-color: white;
-  $centered-navigation-color-hover: $base-font-color;
+  $centered-navigation-color-hover: transparentize($centered-navigation-color, 0.6);
+  //$centered-navigation-color-hover: $base-font-color;
   $centered-navigation-height: 60px;
   $centered-navigation-item-padding: 1em;
   $centered-navigation-submenu-padding: 1em;
