@@ -1,18 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta charset: "utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-     <%= current_page.data.title || "IEI - Instituto de Economia Internacional" %>
+      <%= current_page.data.title || "IEI - Instituto de Economia Internacional" %>
     </title>
     <%= stylesheet_link_tag "application" %>
   </head>
 
-<body class="<%= page_classes %>">
+  <body class="<%= page_classes %>">
     <%= partial "menu_superior" %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
     <%= partial "footer" %>
-    <%= javascript_include_tag "https://code.jquery.com/jquery-2.1.1.min.js" %>
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap -->
     <%= javascript_include_tag "application" %>
   </body>
-  </html>
+</html>

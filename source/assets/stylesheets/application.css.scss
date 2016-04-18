@@ -1,1 +1,15 @@
-@import "materialize";
+@import "bootstrap";
+body {
+  margin: 140px 0;
+}
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+.nav-item {
+  margin: 18px 0;
+}
