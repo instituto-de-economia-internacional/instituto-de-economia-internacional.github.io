@@ -1,2 +1,4 @@
 //= require jquery
-//= require bootstrap-sprockets
+//= require bootstrap/dropdown
+//= require bootstrap/button
+//= require bootstrap/collapse

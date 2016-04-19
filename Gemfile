@@ -13,4 +13,6 @@ gem "middleman-livereload", "~> 3.4"
 gem "middleman-sprockets", "= 4.0.0.rc.1"
 gem "sassc", "~> 1.8"
 gem "jquery-middleman"
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem "bootstrap-sass", '~> 3.0.3.0', require: false
+gem 'font-awesome-middleman'
+
