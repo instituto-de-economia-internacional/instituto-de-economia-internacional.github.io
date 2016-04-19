@@ -7,9 +7,12 @@ $brand-footer: #37474F;
 $brand-footer-text: #fff;
 
 body {
-  margin: 140px 0;
+  margin: 100px 0;
 }
-
+.migas {
+ background-color: $breadcrumb-bg;
+ //padding: 10px 0;
+}
 .footer {
   background-color: $brand-footer;
   color: $brand-footer-text;
