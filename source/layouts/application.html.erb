@@ -13,8 +13,10 @@
   <body class="<%= page_classes %>">
     <%= partial "menu_superior" %>
     <%= partial "breadcrumbs" %>
-    <div class="container">
-      <%= yield %>
+    <div class="contenido" role="contenido">
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
     <%= partial "footer" %>
     <%= javascript_include_tag "application" %>

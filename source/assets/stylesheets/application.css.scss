@@ -11,7 +11,14 @@ body {
 }
 .migas {
  background-color: $breadcrumb-bg;
- //padding: 10px 0;
+ padding-top: 10px;
+}
+// Anula la propiedad por defecto
+.breadcrumb {
+ margin-bottom: 0px; 
+}
+.contenido {
+  margin-top: 40px;
 }
 .footer {
   background-color: $brand-footer;

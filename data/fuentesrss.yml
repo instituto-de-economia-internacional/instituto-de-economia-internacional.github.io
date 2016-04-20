@@ -1,0 +1,11 @@
+noticias:
+  ua:
+  - http://iei.ua.es/es/noticias.xml
+  uv:
+  - http://iei.uv.es/es/noticias.xml
+  uji:
+  - http://iei.uj.es/es/noticias.xml
+investigacion:
+  - http://iei.ua.es/es/investigacion.xml
+  - http://iei.uv.es/es/noticias.xml
+  - http://iei.uj.es/es/noticias.xml

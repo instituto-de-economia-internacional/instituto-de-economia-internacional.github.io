@@ -14,5 +14,5 @@ gem "middleman-sprockets", "= 4.0.0.rc.1"
 gem "sassc", "~> 1.8"
 gem "jquery-middleman"
 gem "bootstrap-sass", '~> 3.0.3.0', require: false
-gem 'font-awesome-middleman'
-
+gem "font-awesome-middleman"
+gem "feedjira"
