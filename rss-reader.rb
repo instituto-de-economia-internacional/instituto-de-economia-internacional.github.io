@@ -12,10 +12,13 @@ open(url) do |rss|
 end
 
 
-url = 'http://iei.ua.es/es/noticias.xml'
+#url = 'http://iei.ua.es/es/noticias.xml'
+#url = 'http://iei.uji.es/feed.php'
+url = 'http://iei.uv.es/feed/'
 feed = Feedjira::Feed.fetch_and_parse url
 puts feed.url
 puts '======================================================================='
 feed.entries.each do |entry|
-  puts "Fecha: #{entry.updated.strftime('%d/%m/%Y')} #{entry.title}"
+  #puts "Fecha: #{entry.updated.strftime('%d/%m/%Y')} #{entry.title}"
+  puts "Fecha: #{entry.published.strftime('%d/%m/%Y')} #{entry.title}"
 end
