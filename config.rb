@@ -1,4 +1,4 @@
-activate :directory_indexes
+#activate :directory_indexes
 activate :autoprefixer
 
 set :relative_links, true

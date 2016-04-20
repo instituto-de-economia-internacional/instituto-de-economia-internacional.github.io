@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset: "utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+      <%= current_page.data.title || "IEI - Instituto de Economia Internacional" %>
+    </title>
+    <%= stylesheet_link_tag "application" %>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <%= partial "menu_superior" %>
+    <%= partial "breadcrumbs" %>
+    <div class="contenido" role="contenido">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+    <%= partial "footer" %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
