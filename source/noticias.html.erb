@@ -1,14 +1,15 @@
 <% rss_noticias.each do |noticia| %>
-  <div class="panel panel-warning">
-    <div class="panel-heading panel-success">
-      <%= noticia.title %>
-      <a href="<%= noticia.url %>"></a>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <div class="panel panel-primary panel-noticias">
+        <div class="panel-heading">
+          <span><%= noticia.generator %></span>
+          <span class="pull-right"><%= noticia.published.strftime("%d/%m/%Y") %></span>
+        </div>
+        <div class="panel-body">
+          <a class="enlace" href="<%= noticia.url %>"><%= noticia.title %></a>
+        </div>
+      </div>
     </div>
-    <div class="panel-body">
-        <%= Sanitize.clean(noticia.content) %>
-    </div>
-    <div class=·panel-footer">
-      <span class="label label-default"><%= noticia.generator%></span>
-      <%= noticia.published.strftime("%d/%m/%Y") %>
   </div>
 <% end %>

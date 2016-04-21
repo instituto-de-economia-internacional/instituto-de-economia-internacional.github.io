@@ -5,9 +5,13 @@
 @import "menu";
 $brand-footer: #37474F;
 $brand-footer-text: #fff;
+$brand-link: darken($brand-primary, 20%);
 
 body {
   margin: 100px 0;
+}
+.brand-menu {
+  background-color: $brand-menu;
 }
 .migas {
  background-color: $breadcrumb-bg;
@@ -32,4 +36,10 @@ body {
     padding: 10px;
   }
 }
+a.enlace {
+  color: $brand-link ;
+}
+.panel-noticias {
+  //padding: 10px;
 
+}

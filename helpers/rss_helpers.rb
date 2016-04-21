@@ -4,6 +4,7 @@ module RssHelpers
     # Noticias de Alicante
     entradas = rss_noticias_alicante
     entradas.concat(rss_noticias_valencia)
+    #entradas.concat(rss_noticias_castellon)
     entradas.sort! {|a,b| a.published <=> b.published}
     entradas.reverse!
   end
@@ -16,6 +17,8 @@ module RssHelpers
     rss_read_feed(url_uv, 'Valencia')
   end
   def rss_noticias_castellon
+    url_uji = 'http://iei.uji.es/feed.php'
+    rss_read_feed(url_uji, 'Castellón')
   end
 
   def rss_read_feed(url, productor)
