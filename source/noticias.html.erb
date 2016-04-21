@@ -1,11 +1,14 @@
-<h1>Alicante</h1>
-<% entradas =  rss_noticias_alicante %>
-<%= entradas.entries.first.to_s %>
-<h1>Valencia</h1>
-<% entradas =  rss_noticias_valencia %>
-<%= entradas.entries.first %>
-<h1>Castellon</h1>
-<% entradas =  rss_noticias_castellon %>
-<%= entradas.entries.first %>
-
-
+<% rss_noticias.each do |noticia| %>
+  <div class="panel panel-warning">
+    <div class="panel-heading panel-success">
+      <%= noticia.title %>
+      <a href="<%= noticia.url %>"></a>
+    </div>
+    <div class="panel-body">
+        <%= noticia.content %>
+    </div>
+    <div class=·panel-footer">
+      <span class="label label-default"><%= noticia.generator%></span>
+      <%= noticia.published.strftime("%d/%m/%Y") %>
+  </div>
+<% end %>

@@ -1,24 +1,27 @@
-require 'rss'
-require 'open-uri'
 require 'feedjira'
+require 'sanitize'
 
-url = 'http://iei.ua.es/es/noticias.xml'
-open(url) do |rss|
-  feed = RSS::Parser.parse(rss, do_validate=false, ignore_unknown_element=false)
-  #puts "Title: #{feed}"
-  feed.items.each do |item|
-    #puts item.title.content
-  end
+url_ua = 'http://iei.ua.es/es/noticias.xml'
+url_uv = 'http://iei.uv.es/feed/'
+
+Feedjira::Feed.add_common_feed_entry_element('generator')
+feed_ua = Feedjira::Feed.fetch_and_parse url_ua
+feed_ua.entries.map {|entry| entry.generator='UA'}
+
+feed_uv = Feedjira::Feed.fetch_and_parse url_uv
+feed_uv.entries.map {|entry| entry.generator='UV'}
+
+entradas = feed_ua.entries
+#entradas.zip(feed_uv.entries).flatten.compact
+entradas.concat(feed_uv.entries)
+
+entradas.sort! {|a,b| a.published <=> b.published}
+entradas.reverse!
+
+entradas.each do |entrada|
+  puts "Generador: #{entrada.generator} Fecha: #{entrada.published} Titulo: #{entrada.title} "
+  puts "Url: #{entrada.url} Sumario: #{Sanitize.clean(entrada.content)}"
+  puts "--------------------------------------------------------------------------------------------"
 end
 
-
-#url = 'http://iei.ua.es/es/noticias.xml'
-#url = 'http://iei.uji.es/feed.php'
-url = 'http://iei.uv.es/feed/'
-feed = Feedjira::Feed.fetch_and_parse url
-puts feed.url
-puts '======================================================================='
-feed.entries.each do |entry|
-  #puts "Fecha: #{entry.updated.strftime('%d/%m/%Y')} #{entry.title}"
-  puts "Fecha: #{entry.published.strftime('%d/%m/%Y')} #{entry.title}"
-end
+puts entradas.first
