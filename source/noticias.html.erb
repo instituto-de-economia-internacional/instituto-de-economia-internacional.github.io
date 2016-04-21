@@ -5,7 +5,7 @@
       <a href="<%= noticia.url %>"></a>
     </div>
     <div class="panel-body">
-        <%= noticia.content %>
+        <%= Sanitize.clean(noticia.content) %>
     </div>
     <div class=·panel-footer">
       <span class="label label-default"><%= noticia.generator%></span>
