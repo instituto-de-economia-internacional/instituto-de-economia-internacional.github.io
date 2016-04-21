@@ -1,5 +1,11 @@
 <h1>Alicante</h1>
 <% entradas =  rss_noticias_alicante %>
-<%= entradas.entries.first.title %>
+<%= entradas.entries.first.to_s %>
+<h1>Valencia</h1>
+<% entradas =  rss_noticias_valencia %>
+<%= entradas.entries.first %>
+<h1>Castellon</h1>
+<% entradas =  rss_noticias_castellon %>
+<%= entradas.entries.first %>
 
 

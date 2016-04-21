@@ -2,9 +2,9 @@ noticias:
   ua:
   - http://iei.ua.es/es/noticias.xml
   uv:
-  - http://iei.uv.es/es/noticias.xml
+    - http://iei.uv.es/feed/
   uji:
-  - http://iei.uj.es/es/noticias.xml
+    - http://iei.uji.es/feed.php
 investigacion:
   - http://iei.ua.es/es/investigacion.xml
   - http://iei.uv.es/es/noticias.xml
