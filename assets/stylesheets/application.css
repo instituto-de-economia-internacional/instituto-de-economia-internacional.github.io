@@ -7363,5 +7363,8 @@ body {
   .footer .copyright {
     padding: 10px; }
 
-a.enlace {
-  color: #0960a5; }
+.enlace {
+  color: #424242; }
+
+.panel-noticias .panel-heading {
+  background-color: #01578b; }
