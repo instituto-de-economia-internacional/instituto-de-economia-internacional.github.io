@@ -27,4 +27,44 @@ module RssHelpers
     feed.entries.map {|entry| entry.generator=productor}
     feed.entries
   end
+  def page_title
+    current_page.data.title || data.site.titulo
+  end
+  def pagina_destino
+    pagina_actual = current_page.destination_path
+    pagina_actual.split("/").first
+  end
+  def breadcrumb_link(elemento, path)
+    content_tag(:a, elemento.gsub(/-/, ' '), href: path)
+  end
+  def breadcrumb_item(elemento,path, clase)
+    content_tag(:li, breadcrumb_link(elemento, path), class: clase)
+  end
+  def breadcrumbs_text(text)
+    # Borra la parte final si contiene .html
+    I18n.t('breadcrumbs.'+text)
+  end
+  def breadcrumbs
+    caminos = current_page.url.split("/")
+    path = ""
+    list = caminos[1..caminos.length-1].map.with_index do | camino,index |
+      path += "/"+camino
+      clase = nil
+      texto =  if caminos.length == 2
+                  clase = "current"
+                  breadcrumbs_text(camino)
+               else
+                 begin
+                   if index == caminos.length-2
+                     clase = "current"
+                     truncate(current_page.data.title)
+                   else
+                     breadcrumbs_i18n_text(camino)
+                   end
+                 end
+               end
+      breadcrumb_item(texto,path, clase)
+    end
+    content_tag(:nav, list, class: "breadcrumbs", role: "menubar") 
+  end
 end

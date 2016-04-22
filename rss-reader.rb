@@ -3,6 +3,7 @@ require 'sanitize'
 
 url_ua = 'http://iei.ua.es/es/noticias.xml'
 url_uv = 'http://iei.uv.es/feed/'
+url_uji = 'http://iei.uji.es/feed.php'
 
 Feedjira::Feed.add_common_feed_entry_element('generator')
 feed_ua = Feedjira::Feed.fetch_and_parse url_ua
@@ -10,6 +11,10 @@ feed_ua.entries.map {|entry| entry.generator='UA'}
 
 feed_uv = Feedjira::Feed.fetch_and_parse url_uv
 feed_uv.entries.map {|entry| entry.generator='UV'}
+
+feed_uji = Feedjira::Feed.fetch_and_parse url_uji
+feed_uji.entries.map {|entry| entry.generator='UJI'}
+
 
 entradas = feed_ua.entries
 #entradas.zip(feed_uv.entries).flatten.compact

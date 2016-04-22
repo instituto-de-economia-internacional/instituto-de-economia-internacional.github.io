@@ -36,10 +36,11 @@ body {
     padding: 10px;
   }
 }
-a.enlace {
-  color: $brand-link ;
+.enlace {
+  color: #424242;
 }
 .panel-noticias {
-  //padding: 10px;
-
+  .panel-heading {
+    background-color: darken(#0277bd, 10%);
+  }
 }
