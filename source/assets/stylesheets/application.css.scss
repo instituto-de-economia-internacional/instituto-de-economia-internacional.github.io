@@ -39,8 +39,6 @@ body {
 .enlace {
   color: #424242;
 }
-.panel-noticias {
-  .panel-heading {
-    background-color: darken(#0277bd, 10%);
-  }
+.noticia {
+  border-top: dotted 1px #ccc;
 }
