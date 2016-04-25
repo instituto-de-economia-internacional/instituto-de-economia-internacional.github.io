@@ -4,7 +4,7 @@ module RssHelpers
     # Noticias de Alicante
     entradas = rss_noticias_alicante
     entradas.concat(rss_noticias_valencia)
-    #entradas.concat(rss_noticias_castellon)
+    entradas.concat(rss_noticias_castellon)
     entradas.sort! {|a,b| a.published <=> b.published}
     entradas.reverse!
   end
