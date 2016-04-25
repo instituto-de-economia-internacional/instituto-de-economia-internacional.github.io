@@ -7366,5 +7366,5 @@ body {
 .enlace {
   color: #424242; }
 
-.panel-noticias .panel-heading {
-  background-color: #01578b; }
+.noticia {
+  border-top: dotted 1px #ccc; }
