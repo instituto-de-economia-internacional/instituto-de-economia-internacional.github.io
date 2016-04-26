@@ -44,7 +44,7 @@ module RssHelpers
     # Borra la parte final si contiene .html
     I18n.t('breadcrumbs.'+text)
   end
-  def breadcrumbs
+  def breadcrumbs_mio
     caminos = current_page.url.split("/")
     path = ""
     list = caminos[1..caminos.length-1].map.with_index do | camino,index |

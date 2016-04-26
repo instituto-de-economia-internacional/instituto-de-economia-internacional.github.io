@@ -17,3 +17,4 @@ gem "bootstrap-sass", '~> 3.0.3.0', require: false
 gem "font-awesome-middleman"
 gem "feedjira"
 gem "sanitize"
+gem "middleman-data_source", github: "stevenosloan/middleman-data_source"

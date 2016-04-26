@@ -27,3 +27,10 @@ activate :deploy do |deploy|
   deploy.build_before = true
   deploy.branch = 'master'
 end
+
+activate :data_source do |c|
+  c.root  = "http://iei.ua.es"
+  c.files = {
+    "es/investigadores.json" => "investigadores_ua"
+  }
+end
