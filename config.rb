@@ -31,6 +31,13 @@ end
 activate :data_source do |c|
   c.root  = "http://iei.ua.es"
   c.files = {
-    "es/investigadores.json" => "investigadores_ua"
+    "es/investigadores-json.json" => "investigadores_ua"
   }
 end
+
+#activate :data_source do |c|
+#  c.root  = "http://iei.uji.es"
+#  c.files = {
+#    "investigadores.php" => "investigadores_uji"
+#  }
+#end

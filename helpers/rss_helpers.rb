@@ -67,4 +67,20 @@ module RssHelpers
     end
     content_tag(:nav, list, class: "breadcrumbs", role: "menubar") 
   end
+  # Crea un hash con un array de investigadores de las tres sedes
+  def investigadores
+    # Crea un hash que contiene arrays
+    investigadores = Hash.new {|hash, key| hash[key]=[]}
+    # Añade el contenido de investigadores_ua
+    investigadores.concat(add_investigadores_ua)
+    #investigadores.sort! {|a, b| a.<=>b}
+  end
+  def add_investigadores_ua
+    h = Hash.new {|hash, key| hash[key]=[]}
+    data.investigadores_ua.each do |investigador|
+      apellidos_nombre = "#{investigador.apellidos},#{investigador.nombre}"
+      h[apellidos_nombre].push investigador
+    end
+    h
+  end
 end
