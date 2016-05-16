@@ -1,5 +1,6 @@
 include Padrino::Helpers
 module RssHelpers
+  # Manipulación de datos de las fuentes externas
   def rss_noticias
     # Noticias de Alicante
     entradas = rss_noticias_alicante
@@ -27,6 +28,43 @@ module RssHelpers
     feed.entries.map {|entry| entry.generator=productor}
     feed.entries
   end
+  def investigadores_institutos
+    # Crea un hash que contiene arrays
+    investigadores = investigadores_alicante
+    # Añade el contenido de investigadores de Castellon
+    investigadores.concat(investigadores_castellon)
+    investigadores.sort_by {|h| h[:apellidosynombre]}
+  end
+  def investigadores_alicante
+    investigadores = []
+    data.investigadores_ua.each do |investigador_ua|
+      investigador = Hash.new
+      investigador[:apellidosynombre] = "#{investigador_ua.apellidos}, #{investigador_ua.nombre}"
+      investigador[:foto] = investigador_ua.foto
+      investigador[:paginapersonal] = investigador_ua.orcit
+      investigador[:rol] = investigador_ua.rol
+      investigador[:sede] = investigador_ua.sede
+      investigadores << investigador
+    end
+    investigadores
+  end
+  def investigadores_castellon
+    investigadores = []
+    data.investigadores_uji.each do |investigador_uji|
+      investigador = Hash.new
+      investigador[:apellidosynombre] = investigador_uji.nombre
+      investigador[:foto] = investigador_uji.foto
+      if investigador_uji.foto == "http://iei.uji.es/images/personal/foto.png" || investigador_uji.foto == "http://iei.uji.es/images/personal/nodisponible48.jpg"
+        investigador[:foto] = ""
+      end
+      investigador[:paginapersonal] = investigador_uji.orcit
+      investigador[:rol] = investigador_uji.rol
+      investigador[:sede] = "Castellón"
+      investigadores << investigador
+    end
+    investigadores
+  end
+
   def page_title
     current_page.data.title || data.site.titulo
   end
@@ -68,19 +106,4 @@ module RssHelpers
     content_tag(:nav, list, class: "breadcrumbs", role: "menubar") 
   end
   # Crea un hash con un array de investigadores de las tres sedes
-  def investigadores
-    # Crea un hash que contiene arrays
-    investigadores = Hash.new {|hash, key| hash[key]=[]}
-    # Añade el contenido de investigadores_ua
-    investigadores.concat(add_investigadores_ua)
-    #investigadores.sort! {|a, b| a.<=>b}
-  end
-  def add_investigadores_ua
-    h = Hash.new {|hash, key| hash[key]=[]}
-    data.investigadores_ua.each do |investigador|
-      apellidos_nombre = "#{investigador.apellidos},#{investigador.nombre}"
-      h[apellidos_nombre].push investigador
-    end
-    h
-  end
 end

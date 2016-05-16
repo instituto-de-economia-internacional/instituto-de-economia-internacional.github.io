@@ -3,9 +3,13 @@ title: Investigadores
 ---
 
 <ul>
-<% investigadores.each do |investigador| %>
+<% investigadores_institutos.each do |investigador| %>
   <li>
-    <%= investigador %>
+    <%= investigador[:apellidosynombre] %> 
+    <%= investigador[:sede] %>
+    <%= investigador[:foto] %>
+    <%= investigador[:paginapersonal] %>
+    <%= investigador[:rol] %>
   </li> 
 <% end %>
 </ul>
