@@ -2,14 +2,29 @@
 title: Investigadores
 ---
 
-<ul>
-<% investigadores_institutos.each do |investigador| %>
-  <li>
-    <%= investigador[:apellidosynombre] %> 
-    <%= investigador[:sede] %>
-    <%= investigador[:foto] %>
-    <%= investigador[:paginapersonal] %>
-    <%= investigador[:rol] %>
-  </li> 
+<% sedes = ["Alicante", "Castellón"] %>
+<% sedes.each do |sede| %>
+<h3 id="<%= sede %>"><%= sede %></h3>
+<% investigadores_institutos[sede].each_slice(6) do |filas| %>
+  <div class="row">
+    <% filas.each do |investigador| %>
+      <div class="col-md-2" >
+        <div>
+          <div class="panel">
+            <% unless investigador[:foto]=="" %>
+              <img src="<%= investigador[:foto] %>" class="investigador img-rounded img-responsive"/>
+            <% else %>
+              <%= image_tag 'sin-imagen.jpg', class: "investigador img-rounded img-responsive" %>
+            <% end %>
+            <div class="panel-footer">
+              <div class="panel-title text-center">
+                <%= investigador[:apellidosynombre] %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    <% end %>
+  </div>
 <% end %>
-</ul>
+<% end %>

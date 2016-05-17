@@ -30,10 +30,12 @@ module RssHelpers
   end
   def investigadores_institutos
     # Crea un hash que contiene arrays
-    investigadores = investigadores_alicante
+    investigadores = Hash.new 
+    investigadores["Alicante"] = investigadores_alicante
     # Añade el contenido de investigadores de Castellon
-    investigadores.concat(investigadores_castellon)
-    investigadores.sort_by {|h| h[:apellidosynombre]}
+    investigadores["Castellón"] = investigadores_castellon
+    #investigadores.sort_by {|h| h[:apellidosynombre]}
+    investigadores
   end
   def investigadores_alicante
     investigadores = []
@@ -41,7 +43,7 @@ module RssHelpers
       investigador = Hash.new
       investigador[:apellidosynombre] = "#{investigador_ua.apellidos}, #{investigador_ua.nombre}"
       investigador[:foto] = investigador_ua.foto
-      investigador[:paginapersonal] = investigador_ua.orcit
+      investigador[:paginapersonal] = investigador_ua.orcid
       investigador[:rol] = investigador_ua.rol
       investigador[:sede] = investigador_ua.sede
       investigadores << investigador
@@ -57,7 +59,7 @@ module RssHelpers
       if investigador_uji.foto == "http://iei.uji.es/images/personal/foto.png" || investigador_uji.foto == "http://iei.uji.es/images/personal/nodisponible48.jpg"
         investigador[:foto] = ""
       end
-      investigador[:paginapersonal] = investigador_uji.orcit
+      investigador[:paginapersonal] = investigador_uji.orcid
       investigador[:rol] = investigador_uji.rol
       investigador[:sede] = "Castellón"
       investigadores << investigador

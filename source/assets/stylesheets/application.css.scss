@@ -22,7 +22,7 @@ body {
  margin-bottom: 0px; 
 }
 .contenido {
-  margin-top: 40px;
+  //margin-top: 40px;
 }
 .footer {
   background-color: $brand-footer;
@@ -41,4 +41,8 @@ body {
 }
 .noticia {
   border-top: dotted 1px #ccc;
+}
+.investigador {
+ margin: 0 auto;
+ max-height: 200px;
 }
