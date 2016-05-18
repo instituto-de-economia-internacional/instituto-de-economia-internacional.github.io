@@ -82,22 +82,21 @@ module RssHelpers
   def breadcrumb_item(elemento,path, clase)
     content_tag(:li, breadcrumb_link(elemento, path), class: clase)
   end
-  def breadcrumbs_text(text)
-    # Borra la parte final si contiene .html
-    # I18n.t('breadcrumbs.'+text)a
-    text
+  def breadcrumb_text(elemento, camino)
+    if camino == "/"
+      texto = "INICIO"
+    else
+      texto = camino
+    end
+    breadcrumb_item(texto, camino)
   end
-  def breadcrumbs_mio
-    caminos = current_page.url.split("/")
+  def migas
     lista = []
-    url = "/"
+    url = nil
+    caminos = current_page.url.split("/")
     caminos.each do |camino|
-      elemento = Hash.new 
-      url = url+camino.to_s
-      elemento[:url] = url
-      elemento[:texto] = "INICIO" if url == "/"
-      elemento[:texto] = camino.to_s.capitalize
-      lista << elemento
+      url = url+camino
+      lista << breadcrumb_text(camino, url)
     end
     lista
   end
