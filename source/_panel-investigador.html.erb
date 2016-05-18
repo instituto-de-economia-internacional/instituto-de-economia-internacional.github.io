@@ -1,0 +1,13 @@
+<% investigadores_institutos[sede].each_slice(division) do |filas| %>
+  <div class="row">
+    <% filas.each do |investigador| %>
+      <div class="col-md-<%= tamano_columna %> visible-md visible-lg" >
+        <%= partial 'ficha-investigador', locals: { investigador: investigador} %>
+      </div> 
+      <div class="col-sm-<%= tamano_columna %> col-xs-<%= tamano_columna %> visible-sm visible-xs" >
+        <%= partial 'ficha-investigador', locals: { investigador: investigador} %>
+      </div> 
+    <% end %>
+  </div>
+<% end %>
+

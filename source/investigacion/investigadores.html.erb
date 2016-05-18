@@ -5,32 +5,12 @@ title: Investigadores
 <% sedes = ["Alicante", "Castellón"] %>
 <% sedes.each do |sede| %>
 <h3 id="<%= sede %>"><%= sede %></h3>
-<% investigadores_institutos[sede].each_slice(6) do |filas| %>
-  <div class="row">
-    <% filas.each do |investigador| %>
-      <div class="col-md-2" >
-        <div>
-          <div class="panel">
-            <% unless investigador[:foto]=="" %>
-              <img src="<%= investigador[:foto] %>" class="investigador img-rounded img-responsive"/>
-            <% else %>
-              <%= image_tag 'sin-imagen.jpg', class: "investigador img-rounded img-responsive" %>
-            <% end %>
-            <div class="panel-footer">
-              <div class="panel-title text-center">
-                <% if investigador[:paginapersonal] %>
-                  <a href="<%= investigador[:paginapersonal] %>">
-                    <%= investigador[:apellidosynombre] %>
-                  </a>
-                <% else %>
-                    <%= investigador[:apellidosynombre] %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> 
-    <% end %>
-  </div>
-<% end %>
+<div class="visible-md visible-lg">
+  <%= partial 'panel-investigador', locals: { sede: sede, division: 6, tamano_columna: 2 }  %>
+  <p> MD </p>
+</div>
+<div class="visible-sm visible-xs">
+  <p> SM </p>
+  <%= partial 'panel-investigador', locals: { sede: sede, division: 2, tamano_columna: 6 }  %>
+</div>
 <% end %>

@@ -84,30 +84,21 @@ module RssHelpers
   end
   def breadcrumbs_text(text)
     # Borra la parte final si contiene .html
-    I18n.t('breadcrumbs.'+text)
+    # I18n.t('breadcrumbs.'+text)a
+    text
   end
   def breadcrumbs_mio
     caminos = current_page.url.split("/")
-    path = ""
-    list = caminos[1..caminos.length-1].map.with_index do | camino,index |
-      path += "/"+camino
-      clase = nil
-      texto =  if caminos.length == 2
-                  clase = "current"
-                  breadcrumbs_text(camino)
-               else
-                 begin
-                   if index == caminos.length-2
-                     clase = "current"
-                     truncate(current_page.data.title)
-                   else
-                     breadcrumbs_i18n_text(camino)
-                   end
-                 end
-               end
-      breadcrumb_item(texto,path, clase)
+    lista = []
+    url = "/"
+    caminos.each do |camino|
+      elemento = Hash.new 
+      url = url+camino.to_s
+      elemento[:url] = url
+      elemento[:texto] = "INICIO" if url == "/"
+      elemento[:texto] = camino.to_s.capitalize
+      lista << elemento
     end
-    content_tag(:nav, list, class: "breadcrumbs", role: "menubar") 
+    lista
   end
-  # Crea un hash con un array de investigadores de las tres sedes
 end
