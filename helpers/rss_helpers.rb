@@ -59,7 +59,9 @@ module RssHelpers
       if investigador_uji.foto == "http://iei.uji.es/images/personal/foto.png" || investigador_uji.foto == "http://iei.uji.es/images/personal/nodisponible48.jpg"
         investigador[:foto] = ""
       end
-      investigador[:paginapersonal] = investigador_uji.orcid
+      investigador[:paginapersonal] = nil
+      investigador[:paginapersonal] = investigador_uji.orcid unless investigador_uji.orcid == ""
+      investigador[:paginapersonal] = "http://orcid.org/#{investigador_uji.orcid}" unless investigador_uji.orcid[0,4] == 'http' || investigador_uji.orcid == ""
       investigador[:rol] = investigador_uji.rol
       investigador[:sede] = "Castellón"
       investigadores << investigador
