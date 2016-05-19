@@ -1,18 +1,18 @@
         <div>
           <div class="panel">
-            <% unless investigador[:foto]=="" %>
+            <% unless investigador.foto == "" %>
           <img src="<%= investigador[:foto] %>" class="investigador img-rounded img-responsive"/>
         <% else %>
           <%= image_tag 'sin-imagen.jpg', class: "investigador img-rounded img-responsive" %>
         <% end %>
         <div class="panel-footer">
           <div class="panel-title text-center">
-            <% if investigador[:paginapersonal] %>
-              <a href="<%= investigador[:paginapersonal] %>">
-                <%= investigador[:apellidosynombre] %>
+            <% if investigador.orcid %>
+              <a href="<%= investigador.orcid %>">
+                <%= investigador.nombre %>
               </a>
             <% else %>
-              <%= investigador[:apellidosynombre] %>
+              <%= investigador.nombre %>
             <% end %>
           </div>
         </div>

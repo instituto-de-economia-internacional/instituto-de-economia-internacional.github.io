@@ -12,14 +12,14 @@
 
     <div class="collapse navbar-collapse" id="links-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="/nosotros.html">NOSOTROS<span class="sr-only">(current)</span></a></li>
-        <li><a href="/noticias.html">NOTICIAS</a></li>
+        <li class="<%= es_pagina_activa(nil) %>" ><a href="/">NOSOTROS<span class="sr-only">(current)</span></a></li>
+        <li class="<%= es_pagina_activa("noticias") %>"><a href="/noticias">NOTICIAS</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">INVESTIGACIÓN<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/investigacion/investigadores.html">Investigadores</a></li>
-            <li><a href="#">Proyectos</a></li>
-            <li><a href="#">Actividades</a></li>
+            <li class="<%= es_pagina_activa("investigadores") %>"><a href="/investigacion/investigadores">Investigadores</a></li>
+            <li class="<%= es_pagina_activa("proyectos") %>"><a href="#">Proyectos</a></li>
+            <li class="<%= es_pagina_activa("actividades") %>"><a href="#">Actividades</a></li>
           </ul>
         </li>
       </ul>

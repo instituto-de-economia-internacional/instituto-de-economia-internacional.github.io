@@ -1,4 +1,4 @@
-#activate :directory_indexes
+activate :directory_indexes
 activate :autoprefixer
 
 set :relative_links, true
@@ -20,7 +20,6 @@ end
 configure :build do
   activate :relative_assets
 end
-
 activate :deploy do |deploy|
   deploy.deploy_method = :git
   deploy.build_before = true
@@ -28,16 +27,5 @@ activate :deploy do |deploy|
   deploy.branch = 'master'
 end
 
-activate :data_source do |c|
-  c.root  = "http://iei.ua.es"
-  c.files = {
-    "es/investigadores-json.json" => "investigadores_ua"
-  }
-end
 
-activate :data_source do |c|
-  c.root  = "http://iei.uji.es"
-  c.files = {
-    "investigadores.php" => "investigadores_uji"
-  }
-end
+activate :breadcrumbs, separator: nil, wrapper: :li

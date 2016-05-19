@@ -13,10 +13,25 @@ body {
 .brand-menu {
   background-color: $brand-menu;
 }
+ol {
+ display: inline;
+}
 .migas {
  background-color: $breadcrumb-bg;
- padding-top: 10px;
+ padding: 20px 0 10px 0;
 }
+.sedes {
+ float: right;
+}
+.sede {
+ padding: 0 10px;
+}
+.separador-sedes {
+ padding-bottom: 70px; 
+}
+.nombre-sede {
+ padding: 20px 0;
+ }
 // Anula la propiedad por defecto
 .breadcrumb {
  margin-bottom: 0px; 

@@ -28,76 +28,12 @@ module RssHelpers
     feed.entries.map {|entry| entry.generator=productor}
     feed.entries
   end
-  def investigadores_institutos
-    # Crea un hash que contiene arrays
-    investigadores = Hash.new 
-    investigadores["Alicante"] = investigadores_alicante
-    # Añade el contenido de investigadores de Castellon
-    investigadores["Castellón"] = investigadores_castellon
-    #investigadores.sort_by {|h| h[:apellidosynombre]}
-    investigadores
-  end
-  def investigadores_alicante
-    investigadores = []
-    data.investigadores_ua.each do |investigador_ua|
-      investigador = Hash.new
-      investigador[:apellidosynombre] = "#{investigador_ua.apellidos}, #{investigador_ua.nombre}"
-      investigador[:foto] = investigador_ua.foto
-      investigador[:paginapersonal] = investigador_ua.orcid
-      investigador[:rol] = investigador_ua.rol
-      investigador[:sede] = investigador_ua.sede
-      investigadores << investigador
-    end
-    investigadores
-  end
-  def investigadores_castellon
-    investigadores = []
-    data.investigadores_uji.each do |investigador_uji|
-      investigador = Hash.new
-      investigador[:apellidosynombre] = investigador_uji.nombre
-      investigador[:foto] = investigador_uji.foto
-      if investigador_uji.foto == "http://iei.uji.es/images/personal/foto.png" || investigador_uji.foto == "http://iei.uji.es/images/personal/nodisponible48.jpg"
-        investigador[:foto] = ""
-      end
-      investigador[:paginapersonal] = nil
-      investigador[:paginapersonal] = investigador_uji.orcid unless investigador_uji.orcid == ""
-      investigador[:paginapersonal] = "http://orcid.org/#{investigador_uji.orcid}" unless investigador_uji.orcid[0,4] == 'http' || investigador_uji.orcid == ""
-      investigador[:rol] = investigador_uji.rol
-      investigador[:sede] = "Castellón"
-      investigadores << investigador
-    end
-    investigadores
+
+  def es_pagina_activa(nombre)
+    "active" if nombre == current_page.url.split("/").last
   end
 
   def page_title
     current_page.data.title || data.site.titulo
-  end
-  def pagina_destino
-    pagina_actual = current_page.destination_path
-    pagina_actual.split("/").first
-  end
-  def breadcrumb_link(elemento, path)
-    content_tag(:a, elemento.gsub(/-/, ' '), href: path)
-  end
-  def breadcrumb_item(elemento,path, clase)
-    content_tag(:li, breadcrumb_link(elemento, path), class: clase)
-  end
-  def breadcrumb_text(elemento, camino)
-    if camino == "/"
-      texto = "INICIO"
-    else
-      texto = camino
-    end
-    breadcrumb_item(texto, camino)
-  end
-  def migas
-    lista = []
-    url = nil
-    caminos = current_page.url.split("/")
-    caminos.each do |camino|
-      url = url+camino
-      lista << breadcrumb_text(camino, url)
-    end
-    lista
   end
 end

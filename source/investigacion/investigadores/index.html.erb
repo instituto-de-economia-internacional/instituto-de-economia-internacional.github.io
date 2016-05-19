@@ -1,0 +1,27 @@
+---
+title: Investigadores
+---
+
+<% sedes =  {"Alicante" => data.investigadores_ua, "Castellón" => data.investigadores_uji , "Valencia" => data.investigadores_uva } %>
+
+<% content_for(:sedes) do %>
+  <!-- Sedes en breadcrumbs -->
+  <div class="sedes">
+  <% sedes.keys.each do |sede| %>
+    <a class="sede" href="#<%= sede %>"><%= sede.mb_chars.upcase %></a>
+  <% end %>
+  </div>
+<% end %>
+
+<% sedes.each do |key, value| %>
+  <% unless key == "Alicante" %>
+    <p id="<%= key %>"class="separador-sedes"></p>
+  <% end %>
+<h3 class="nombre-sede"><%= key %></h3>
+<div class="visible-md visible-lg">
+  <%= partial 'panel-investigador', locals: { investigadores: value, sede: key, division: 6, tamano_columna: 2 }  %>
+</div>
+<div class="visible-sm visible-xs">
+  <%= partial 'panel-investigador', locals: { investigadores: value, sede: key, division: 2, tamano_columna: 6 }  %>
+</div>
+<% end %>

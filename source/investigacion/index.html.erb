@@ -1,0 +1,25 @@
+---
+title: Investigación
+----
+
+<ul>
+<% data.investigadores_ua.each do |investigador| %>
+  <li>
+    <%= "#{investigador.apellidos}, #{investigador.nombre}" %>
+  </li> 
+<% end %>
+</ul>
+<ul>
+<% data.investigadores_uji.each do |investigador| %>
+  <li>
+    <%= "#{investigador.nombre}" %>
+  </li> 
+<% end %>
+</ul>
+<ul>
+<% data.investigadores_uva.each do |investigador| %>
+  <li>
+    <%= "#{investigador.nombre}" %>
+  </li> 
+<% end %>
+</ul>
