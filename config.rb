@@ -13,7 +13,6 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 # Imagen - Optimizacion
-activate :imageoptim
 
 configure :development do
   activate :livereload
