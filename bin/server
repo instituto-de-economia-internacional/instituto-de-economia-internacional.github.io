@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 
 # Run the Middleman server
+~/code/IEI/instituto-de-economia-internacional.github.io/bin/descarga-json.sh
 bundle exec middleman

@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 
 # Deploy using Middleman-deploy
+./descarga-json.sh
 middleman deploy

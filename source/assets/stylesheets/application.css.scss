@@ -57,7 +57,13 @@ ol {
 .noticia {
   border-top: dotted 1px #ccc;
 }
-.investigador {
- margin: 0 auto;
- max-height: 200px;
+.contenedor-imagen {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 200px;
+  min-height: 200px;
+  .img-responsive {
+    margin: 0 auto;
+  }
 }
