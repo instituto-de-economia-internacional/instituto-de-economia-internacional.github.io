@@ -12,6 +12,7 @@ gem "middleman-deploy", "= 2.0.0.pre.alpha"
 gem "middleman-livereload", "~> 3.4"
 gem "middleman-sprockets", "= 4.0.0.rc.1"
 gem 'middleman-breadcrumbs'
+gem 'middleman-imageoptim'
 gem "sassc", "~> 1.8"
 gem "jquery-middleman"
 gem "bootstrap-sass", '~> 3.0.3.0', require: false
