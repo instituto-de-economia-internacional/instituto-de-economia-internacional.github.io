@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
 # Deploy using Middleman-deploy
-./descarga-json.sh
-middleman deploy
+~/code/IEI/instituto-de-economia-internacional.github.io/bin/descarga-json.sh
+bundle exec middleman deploy
