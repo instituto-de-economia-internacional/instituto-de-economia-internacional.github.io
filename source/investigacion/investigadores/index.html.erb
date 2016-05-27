@@ -14,10 +14,8 @@ title: Investigadores
 <% end %>
 
 <% sedes.each do |key, value| %>
-  <% unless key == "Alicante" %>
-    <p id="<%= key %>"class="separador-sedes"></p>
-  <% end %>
-<h3 class="nombre-sede"><%= key %></h3>
+<p class="separador-sedes"></p>
+<h3 id="<%= key %>" class="nombre-sede"><%= key %></h3>
 <div class="visible-md visible-lg">
   <%= partial 'panel-investigador', locals: { investigadores: value, sede: key, division: 6, tamano_columna: 2 }  %>
 </div>
