@@ -1,0 +1,26 @@
+
+        <div>
+          <div class="panel">
+            <div class="">
+              <% unless noticia.img == "" || noticia.img.nil?  %>
+                  <img src="<%= noticia.img %>" width="100%" class="img-responsive"/>
+              <% else %>
+                <%= image_tag 'sin-imagen.jpg', class: "img-responsive" %>
+              <% end %>
+            </div>
+            <div class="panel-footer">
+              <div class="panel-title text-center">
+                <% if noticia.url %>
+                  <a href="<%= noticia.url %>">
+                    <%= noticia.titulo %>
+                  </a>
+                <% else %>
+                    <%= noticia.titulo %>
+                  <% end %>
+              </div>
+            </div>
+              <div class="panel-body">
+                <%= noticia.contenido %>
+              </div>
+          </div>
+        </div>

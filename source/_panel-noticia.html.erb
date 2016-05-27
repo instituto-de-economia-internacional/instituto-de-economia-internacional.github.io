@@ -1,0 +1,12 @@
+<% noticias.each_slice(division) do |filas| %>
+  <div class="row">
+    <% filas.each do |noticia| %>
+      <div class="col-md-<%= tamano_columna %> visible-md visible-lg" >
+        <%= partial 'ficha-noticia', locals: { noticia: noticia} %>
+      </div> 
+      <div class="col-sm-<%= tamano_columna %> col-xs-<%= tamano_columna %> visible-sm visible-xs" >
+        <%= partial 'ficha-noticia', locals: { noticia: noticia} %>
+      </div> 
+    <% end %>
+  </div>
+<% end %>
