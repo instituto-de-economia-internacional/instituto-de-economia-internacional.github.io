@@ -8,18 +8,17 @@ title: Investigadores
   <!-- Sedes en breadcrumbs -->
   <div class="sedes">
   <% sedes.keys.each do |sede| %>
-    <a class="sede" href="#<%= sede %>"><%= sede.mb_chars.upcase %></a>
+    <a class="sede" href="#<%= sede.urlize %>"><%= sede.mb_chars.upcase %></a>
   <% end %>
   </div>
 <% end %>
 
 <% sedes.each do |key, value| %>
-<p class="separador-sedes"></p>
-<h3 id="<%= key %>" class="nombre-sede"><%= key %></h3>
-<div class="visible-md visible-lg">
-  <%= partial 'panel-investigador', locals: { investigadores: value, sede: key, division: 6, tamano_columna: 2 }  %>
-</div>
-<div class="visible-sm visible-xs">
-  <%= partial 'panel-investigador', locals: { investigadores: value, sede: key, division: 2, tamano_columna: 6 }  %>
-</div>
+  <h3 id="<%= key.urlize %>" ><%= key %></h3>
+  <div class="visible-md visible-lg">
+    <%= partial 'panel-investigador', locals: { investigadores: value, sede: key, division: 6, tamano_columna: 2 }  %>
+  </div>
+  <div class="visible-sm visible-xs">
+    <%= partial 'panel-investigador', locals: { investigadores: value, sede: key, division: 2, tamano_columna: 6 }  %>
+  </div>
 <% end %>

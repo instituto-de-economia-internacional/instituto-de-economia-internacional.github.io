@@ -8,20 +8,17 @@ title: Noticias
   <!-- Sedes en breadcrumbs -->
   <div class="sedes">
   <% sedes.keys.each do |sede| %>
-    <a class="sede" href="#<%= sede %>"><%= sede.mb_chars.upcase %></a>
+    <a class="sede" href="#<%= sede.urlize %>"><%= sede.mb_chars.upcase %></a>
   <% end %>
   </div>
 <% end %>
 
 <% sedes.each do |key, value| %>
-  <% unless key == "Alicante" %>
-    <p id="<%= key %>"class="separador-sedes"></p>
-  <% end %>
-<h3 class="nombre-sede"><%= key %></h3>
-<div class="visible-md visible-lg">
-  <%= partial 'panel-noticia', locals: { noticias: value, sede: key, division: 3, tamano_columna: 4 }  %>
-</div>
-<div class="visible-sm visible-xs">
-  <%= partial 'panel-noticia', locals: { noticias: value, sede: key, division: 2, tamano_columna: 6 }  %>
+  <h3 id="<%= key.urlize %>" ><%= key %></h3>
+  <div class="visible-md visible-lg">
+    <%= partial 'panel-noticia', locals: { noticias: value, sede: key, division: 3, tamano_columna: 4 }  %>
+  </div>
+  <div class="visible-sm visible-xs">
+    <%= partial 'panel-noticia', locals: { noticias: value, sede: key, division: 2, tamano_columna: 6 }  %>
 </div>
 <% end %>

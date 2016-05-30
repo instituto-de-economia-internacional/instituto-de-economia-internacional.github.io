@@ -16,5 +16,5 @@ gem "sassc", "~> 1.8"
 gem "jquery-middleman"
 gem "bootstrap-sass", '~> 3.0.3.0', require: false
 gem "font-awesome-middleman"
-gem "feedjira"
 gem "sanitize"
+gem 'string-urlize', '~> 1.0', '>= 1.0.2'

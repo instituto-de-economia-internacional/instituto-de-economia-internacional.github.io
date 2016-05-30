@@ -1,12 +1,10 @@
         <div>
           <div class="panel">
-            <div class="">
               <% unless investigador.foto == "" || investigador.foto.nil?  %>
                   <img src="<%= investigador[:foto] %>" width="100%" class="img-responsive"/>
               <% else %>
                 <%= image_tag 'sin-imagen.jpg', class: "img-responsive" %>
               <% end %>
-            </div>
             <div class="panel-footer">
               <div class="panel-title text-center">
                 <% if investigador.orcid %>

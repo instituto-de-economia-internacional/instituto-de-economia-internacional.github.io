@@ -42,3 +42,23 @@
     transform: rotate(0);
   }
 }
+.brand-menu {
+  background-color: $brand-menu;
+}
+ol {
+ display: inline;
+}
+.migas {
+ background-color: $breadcrumb-bg;
+ padding: 15px 0 10px 0;
+}
+.sedes {
+ float: right;
+}
+.sede {
+ padding: 0 10px;
+}
+// Anula la propiedad por defecto
+.breadcrumb {
+// margin-bottom: 0px; 
+}
