@@ -15,10 +15,13 @@ title: Noticias
 
 <% sedes.each do |key, value| %>
   <h3 id="<%= key.urlize %>" ><%= key %></h3>
-  <div class="visible-md visible-lg">
-    <%= partial 'panel-noticia', locals: { noticias: value, sede: key, division: 3, tamano_columna: 4 }  %>
+  <div class="visible-lg">
+    <%= partial 'panel-noticia', locals: { noticias: value, sede: key, division: 3 , tamano_columna: 4 }  %>
   </div>
-  <div class="visible-sm visible-xs">
+  <div class="visible-sm visible-md">
     <%= partial 'panel-noticia', locals: { noticias: value, sede: key, division: 2, tamano_columna: 6 }  %>
-</div>
+  </div>
+  <div class="visible-xs">
+    <%= partial 'panel-noticia', locals: { noticias: value, sede: key, division: 1, tamano_columna: 12 }  %>
+  </div>
 <% end %>
